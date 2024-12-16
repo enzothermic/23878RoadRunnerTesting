@@ -105,7 +105,7 @@ public class CBAutonomous_enzotestmultiauto extends CommandOpMode {
                         new ArmRunToPositionCommand(armSubsystem, telemetry, -4000, 0.8),
                         new PivotRunToPositionCommand(pivotSubsystem, PivotSubsystem.HIGHEST_POS, 0.5)),
                 new ParallelCommandGroup(new DriveRotateCommand(driveSubsystem, 45, 0.25, telemetry),
-                        new ArmRunToPositionCommand(armSubsystem, telemetry, , 0.8)),
+                        new ArmRunToPositionCommand(armSubsystem, telemetry, ArmSubsystem.LIMITED_EXTEND, 0.8)),
                 new ParallelCommandGroup(new DriveDistanceCommand(driveSubsystem, 27, 0, 0.3, telemetry),
                         new ArmRunToPositionCommand(armSubsystem, telemetry, ArmSubsystem.FULL_EXTEND, 0.8)),
                 new ParallelCommandGroup(new PivotRunToPositionCommand(pivotSubsystem, PivotSubsystem.HIGHEST_POS - 800, 0.5),
@@ -126,7 +126,7 @@ public class CBAutonomous_enzotestmultiauto extends CommandOpMode {
                         new ArmRunToPositionCommand(armSubsystem, telemetry, FIRSTYELLOWSAMPLEEXTEND, 1)),
                         new PivotRunToPositionCommand(pivotSubsystem, pivotSubsystem.LOWEST_POS + 400, 0.5),
                 //pick up piece
-                new ParallelCommandGroup((new PivotRunToPositionCommand(pivotSubsystem, PivotSubsystem.LOWEST_POS + 200, 0.5)))
+                new ParallelCommandGroup((new PivotRunToPositionCommand(pivotSubsystem, PivotSubsystem.LOWEST_POS + 200, 0.5))
                         new IntakeRunCommand(intakeSubsystem, IntakeRunCommand.Direction.In).withTimeout(1000),
                 //go back to basket (rotate the robot: while doing that, pivot extends to max, arm goes to max)
                 new ParallelCommandGroup(new DriveRotateCommand(driveSubsystem, -45, 0.25, telemetry),
