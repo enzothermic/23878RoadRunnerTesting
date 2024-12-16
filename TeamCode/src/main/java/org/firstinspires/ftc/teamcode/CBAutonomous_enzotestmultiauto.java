@@ -128,7 +128,7 @@ public class CBAutonomous_enzotestmultiauto extends CommandOpMode {
                 //pick up piece
                 new ParallelCommandGroup((new PivotRunToPositionCommand(pivotSubsystem, PivotSubsystem.LOWEST_POS + 200, 0.5)))
                         new IntakeRunCommand(intakeSubsystem, IntakeRunCommand.Direction.In).withTimeout(1000),
-                //go back to basket (rotate the robot: while doing that, pivot extends to max, arm goes to max
+                //go back to basket (rotate the robot: while doing that, pivot extends to max, arm goes to max)
                 new ParallelCommandGroup(new DriveRotateCommand(driveSubsystem, -45, 0.25, telemetry),
                         new PivotRunToPositionCommand(pivotSubsystem, pivotSubsystem.HIGHEST_POS, 0.5),
                         new ArmRunToPositionCommand(armSubsystem, telemetry, -4000, 1),
@@ -146,6 +146,15 @@ public class CBAutonomous_enzotestmultiauto extends CommandOpMode {
                 new ParallelCommandGroup(
                         new PivotRunToPositionCommand(pivotSubsystem, PivotSubsystem.LOWEST_POS + 300, 0.5),
                         new IntakeRunCommand(intakeSubsystem, IntakeRunCommand.Direction.In).withTimeout(1000),
+                new ParallelCommandGroup(new DriveRotateCommand(driveSubsystem, -45, 0.25, telemetry),
+                        new PivotRunToPositionCommand(pivotSubsystem, pivotSubsystem.HIGHEST_POS, 0.5),
+                        new ArmRunToPositionCommand(armSubsystem, telemetry, -400, 1),
+                        new DriveDistanceCommand(driveSubsystem,54,0,,0.4,telemetry),
+                new ParallelCommandGroup(
+                        new PivotRunToPositionCommand(pivotSubsystem,PivotSubsystem.HIGHEST_POS-800,0.5),
+                        new IntakeRunCommand(intakeSubsystem,IntakeRunCommand.Direction.Out).withTimeout(1000),
+                
+
 
 
 
